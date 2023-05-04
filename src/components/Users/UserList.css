@@ -1,0 +1,52 @@
+
+
+.tasks{
+height: auto;
+width: 358px;
+margin-left: 16px;
+top: 139px;
+padding: 0.5rem;
+margin-top: 10px;
+border-radius: 8px;
+
+
+  }
+
+.taskDesc{
+  font-family: Inter;
+font-size: 14px;
+font-weight: 400;
+line-height: 17px;
+letter-spacing: 0em;
+text-align: left;
+
+}
+
+.taskSchedule{
+  margin-top: 10px;
+  display: flex;
+  gap: 6px;
+}
+/* .taskAlarmClock{
+
+} */
+
+.taskAlarmTime{
+  font-family: Inter;
+  font-size: 10px;
+  font-weight: 200;
+  line-height: 12px;
+  letter-spacing: 0em;
+  text-align: left;
+  
+}
+
+.taskAlarmDate{
+font-family: Inter;
+font-size: 10px;
+font-weight: 200;
+line-height: 12px;
+letter-spacing: 0em;
+text-align: center;
+
+}
