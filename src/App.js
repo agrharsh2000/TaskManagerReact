@@ -42,7 +42,7 @@ const DUMMY_DATA = [
 
 const SOMEDAY_DATA = [
   {
-    id: "e1",
+    id: "e6",
     taskDescription: "Learn driving and also apply for my driver’s license 🚗",
     alarmTime: "10:00 PM",
     date: "Today",
@@ -50,18 +50,27 @@ const SOMEDAY_DATA = [
 ];
 
 function App() {
-  return (
-    <div>
-      <h2 class="title">Schedule</h2>
-      <div className="dayName">Today</div>
-      <div className="dayNameDate">5 May</div>
-      <UserList users={DUMMY_DATA} />
-      <div className="dayName">Someday</div>
-      <UserList users={SOMEDAY_DATA} />
-    </div>
-  );
+  const [showTaskDisplay, setShowTaskDisplay] = useState(false);
 
-  return <TaskDisplay users={DUMMY_DATA} />;
+  const handleUserListClick = () => {
+    console.log("hello ji");
+    setShowTaskDisplay(true);
+  };
+
+  return (
+    // <div>
+    //   <h2 className="title">Schedule</h2>
+    //   <div className="dayName">Today</div>
+    //   <div className="dayNameDate">5 May</div>
+    //   <UserList users={DUMMY_DATA} onClick={handleUserListClick} />
+    //   {showTaskDisplay && (
+    //     <>
+    //       <div className="dayName">Someday</div>
+    <TaskDisplay users={SOMEDAY_DATA} />
+    //     </>
+    //   )}
+    // </div>
+  );
 }
 
 export default App;
