@@ -23,11 +23,22 @@ function App() {
     }
   };
 
+  const handleTimeChange = (time) => {
+    if (selectedTask) {
+      const updatedTask = { ...selectedTask, time };
+      setSelectedTask(updatedTask);
+    }
+  };
+
   return (
     <div>
       {showTaskDisplay ? (
         <>
-          <TaskDisplay users={selectedTask} onDateChange={handleDateChange} />
+          <TaskDisplay
+            users={selectedTask}
+            onDateChange={handleDateChange}
+            onTimeChange={handleTimeChange}
+          />
         </>
       ) : (
         <>

@@ -18,6 +18,9 @@ const TaskDisplay = (props) => {
   const [selectedDate, setSelectedDate] = useState(new Date(props.users.date));
   const [showDatePicker, setShowDatePicker] = useState(false);
 
+  const [selectedTime, setSelectedTime] = useState(props.users.alarmTime);
+  const [showTimePicker, setShowTimePicker] = useState(false);
+
   const handleDateChange = (date) => {
     setSelectedDate(date);
     const formattedDate = date.toLocaleDateString();
@@ -30,6 +33,19 @@ const TaskDisplay = (props) => {
 
   const handleDatePickerClose = () => {
     setShowDatePicker(false);
+  };
+
+  const handleTimeChange = (time) => {
+    setSelectedTime(time);
+    props.onTimeChange(time);
+  };
+
+  const handleTimeClick = () => {
+    setShowTimePicker(true);
+  };
+
+  const handleTimePickerClose = () => {
+    setShowTimePicker(false);
   };
 
   return (
@@ -70,10 +86,20 @@ const TaskDisplay = (props) => {
           </div>
 
           <div className="TaskCheckL2">
-            <div className="TaskChecker">
-              On the day at {props.users.alarmTime}
+            <div className="TaskChecker">{selectedTime}</div>
+            <div onClick={handleTimeClick}>
+              <img src={bell} alt=""></img>
             </div>
-            <img src={bell} width="12" height="14" alt=""></img>
+            {showTimePicker && (
+              <div className="timepicker-wrapper">
+                <input
+                  type="time"
+                  value={selectedTime}
+                  onChange={(event) => handleTimeChange(event.target.value)}
+                />
+                <button onClick={handleTimePickerClose}>Close</button>
+              </div>
+            )}
           </div>
         </div>
       </div>
