@@ -53,6 +53,7 @@ const TaskDisplay = (props) => {
       <div className="header" onClick={props.onHeaderClick}></div>
       <div className="TaskInsider">
         <div className="TaskHeading">{props.users.taskDescription}</div>
+
         <div className="tasklist">
           <div className="TaskCheckList">
             <img src={Add} alt=""></img>
@@ -103,6 +104,7 @@ const TaskDisplay = (props) => {
           </div>
         </div>
       </div>
+
       <button className="taskopenclose">
         <img src={dele} alt=""></img>
         <img src={Tick} alt=""></img>
