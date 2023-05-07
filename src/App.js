@@ -58,18 +58,22 @@ function App() {
   };
 
   return (
-    // <div>
-    //   <h2 className="title">Schedule</h2>
-    //   <div className="dayName">Today</div>
-    //   <div className="dayNameDate">5 May</div>
-    //   <UserList users={DUMMY_DATA} onClick={handleUserListClick} />
-    //   {showTaskDisplay && (
-    //     <>
-    //       <div className="dayName">Someday</div>
-    <TaskDisplay users={SOMEDAY_DATA} />
-    //     </>
-    //   )}
-    // </div>
+    <div>
+      {showTaskDisplay ? (
+        <>
+          <TaskDisplay users={SOMEDAY_DATA} />
+        </>
+      ) : (
+        <>
+          <h2 className="title">Schedule</h2>
+          <div className="dayName">Today</div>
+          <div className="dayNameDate">5 May</div>
+          <UserList users={DUMMY_DATA} onClick={handleUserListClick} />
+          <div className="dayName">Someday</div>
+          <UserList users={SOMEDAY_DATA} onClick={handleUserListClick} />
+        </>
+      )}
+    </div>
   );
 }
 

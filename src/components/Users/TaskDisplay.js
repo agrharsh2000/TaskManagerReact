@@ -9,7 +9,7 @@ import Notes from "../../img/Notes.svg";
 import Add from "../../img/Add.svg";
 const TaskDisplay = (props) => {
   return (
-    <div>
+    <div className="task-display-container">
       <div className="header"></div>
       <div className="TaskInsider">
         <div className="TaskHeading">
@@ -18,29 +18,29 @@ const TaskDisplay = (props) => {
         </div>
         <div className="tasklist">
           <div className="TaskCheckList">
-            <img src={Add}></img>
+            <img src={Add} alt=""></img>
             <div className="TaskChecker">Checklist</div>
           </div>
 
           <div className="TaskCheckL">
             <div className="TaskChecker">Notes</div>
-            <img src={Notes}></img>
+            <img src={Notes} alt=""></img>
           </div>
 
           <div className="TaskCheckL">
             <div className="TaskChecker">Today</div>
-            <img src={Calendar}></img>
+            <img src={Calendar} alt=""></img>
           </div>
 
           <div className="TaskCheckL2">
             <div className="TaskChecker">On the day at 12:00PM</div>
-            <img src={bell} width="12" height="14"></img>
+            <img src={bell} width="12" height="14" alt=""></img>
           </div>
         </div>
       </div>
       <button className="taskopenclose">
-        <img src={dele}></img>
-        <img src={Tick}></img>
+        <img src={dele} alt=""></img>
+        <img src={Tick} alt=""></img>
       </button>
     </div>
   );

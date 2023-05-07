@@ -1,10 +1,20 @@
+.task-display-container {
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    
+  }
+
+
 .header{
     height: 70px;
     width: 390px;
     left: 0px;
     top: 0px;
     border-radius: 0px;
-    background-color: rgba(217, 217, 217, 0.75);; 
+    background-color: rgba(217, 217, 217, 0.75);
+   
     
     
     
