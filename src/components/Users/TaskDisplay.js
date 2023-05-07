@@ -115,7 +115,7 @@ const TaskDisplay = (props) => {
           <div className="TaskCheckL2">
             <div className="TaskChecker">{selectedTime}</div>
             <div onClick={handleTimeClick}>
-              <img src={bell} alt=""></img>
+              <img src={bell} alt="" width={14} height={14}></img>
             </div>
             {showTimePicker && (
               <div className="timepicker-wrapper">
