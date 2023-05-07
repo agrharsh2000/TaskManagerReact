@@ -1,8 +1,9 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import UserList from "./components/Users/UserList";
 import "./App.css";
 import TaskDisplay from "./components/Users/TaskDisplay";
 import SOMEDAY_DATA from "./components/Users/somedayData";
+import localforage from "localforage";
 let DUMMY_DATA = [
   {
     id: "e1",
@@ -42,9 +43,21 @@ let DUMMY_DATA = [
 function App() {
   const [showTaskDisplay, setShowTaskDisplay] = useState(false);
   const [selectedTask, setSelectedTask] = useState(null);
+  const [dummyData, setDummyData] = useState([]);
+
+  useEffect(() => {
+    localforage.getItem("dummyData").then((value) => {
+      if (value) {
+        setDummyData(value);
+      } else {
+        setDummyData(DUMMY_DATA);
+        localforage.setItem("dummyData", DUMMY_DATA);
+      }
+    });
+  }, []);
 
   const handleUserListClick = (id) => {
-    const task = DUMMY_DATA.find((task) => task.id === id);
+    const task = dummyData.find((task) => task.id === id);
 
     setSelectedTask(task);
     setShowTaskDisplay(true);
@@ -53,10 +66,11 @@ function App() {
   const handleDateChange = (date) => {
     if (selectedTask) {
       const updatedTask = { ...selectedTask, date };
-      const index = DUMMY_DATA.findIndex((task) => task.id === selectedTask.id);
-      const updatedData = [...DUMMY_DATA];
+      const index = dummyData.findIndex((task) => task.id === selectedTask.id);
+      const updatedData = [...dummyData];
       updatedData[index] = updatedTask;
       setDummyData(updatedData);
+      localforage.setItem("dummyData", updatedData);
       setSelectedTask(updatedTask);
     }
   };
@@ -64,10 +78,11 @@ function App() {
   const handleTimeChange = (time) => {
     if (selectedTask) {
       const updatedTask = { ...selectedTask, alarmTime: time };
-      const index = DUMMY_DATA.findIndex((task) => task.id === selectedTask.id);
-      const updatedData = [...DUMMY_DATA];
+      const index = dummyData.findIndex((task) => task.id === selectedTask.id);
+      const updatedData = [...dummyData];
       updatedData[index] = updatedTask;
       setDummyData(updatedData);
+      localforage.setItem("dummyData", updatedData);
       setSelectedTask(updatedTask);
     }
   };
@@ -75,8 +90,6 @@ function App() {
   const handleHeaderClick = () => {
     setShowTaskDisplay(false);
   };
-
-  const [dummyData, setDummyData] = useState(DUMMY_DATA);
 
   return (
     <div>
