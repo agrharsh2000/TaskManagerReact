@@ -8,14 +8,12 @@ import Calendar from "../../img/Calendar.svg";
 import Notes from "../../img/Notes.svg";
 import Add from "../../img/Add.svg";
 const TaskDisplay = (props) => {
+  console.log(props.users);
   return (
     <div className="task-display-container">
       <div className="header"></div>
       <div className="TaskInsider">
-        <div className="TaskHeading">
-          Use ChatGPT to create a general purpose trading algorithm that could
-          predict the dogecoin fluctuations in real time and notify me on time.
-        </div>
+        <div className="TaskHeading">{props.users.taskDescription}</div>
         <div className="tasklist">
           <div className="TaskCheckList">
             <img src={Add} alt=""></img>
@@ -28,12 +26,14 @@ const TaskDisplay = (props) => {
           </div>
 
           <div className="TaskCheckL">
-            <div className="TaskChecker">Today</div>
+            <div className="TaskChecker">{props.users.date}</div>
             <img src={Calendar} alt=""></img>
           </div>
 
           <div className="TaskCheckL2">
-            <div className="TaskChecker">On the day at 12:00PM</div>
+            <div className="TaskChecker">
+              On the day at {props.users.alarmTime}
+            </div>
             <img src={bell} width="12" height="14" alt=""></img>
           </div>
         </div>

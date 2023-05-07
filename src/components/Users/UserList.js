@@ -3,14 +3,17 @@ import Card from "../UI/Card";
 import "./UserList.css";
 import bell from "../../img/bell.svg";
 const UserList = (props) => {
-  const handleUserListClick = () => {
-    console.log("sharma");
-    props.onClick();
+  const handleUserListClick = (id) => {
+    props.onClick(id);
   };
   return (
     <div className="users">
       {props.users.map((user) => (
-        <Card className="tasks" onClick={props.onClick}>
+        <Card
+          className="tasks"
+          key={user.id}
+          onClick={() => handleUserListClick(user.id)}
+        >
           <div className="taskDesc"> {user.taskDescription} </div>
           <div className="taskSchedule">
             <img src={bell} />

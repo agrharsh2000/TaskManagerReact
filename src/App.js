@@ -16,7 +16,7 @@ const DUMMY_DATA = [
     id: "e2",
     taskDescription:
       "Use ChatGPT to create a general purpose trading algorithm that could predict the dogecoin fluctuations in real time and notify me on time.",
-    alarmTime: "10:00 PM",
+    alarmTime: "11:00 PM",
     date: "Today",
   },
   {
@@ -51,9 +51,12 @@ const SOMEDAY_DATA = [
 
 function App() {
   const [showTaskDisplay, setShowTaskDisplay] = useState(false);
+  const [selectedTask, setSelectedTask] = useState(null);
+  const handleUserListClick = (id) => {
+    const task = DUMMY_DATA.find((task) => task.id === id);
+    console.log(task);
 
-  const handleUserListClick = () => {
-    console.log("hello ji");
+    setSelectedTask(task);
     setShowTaskDisplay(true);
   };
 
@@ -61,7 +64,7 @@ function App() {
     <div>
       {showTaskDisplay ? (
         <>
-          <TaskDisplay users={SOMEDAY_DATA} />
+          <TaskDisplay users={selectedTask} />
         </>
       ) : (
         <>
