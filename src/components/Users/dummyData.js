@@ -4,7 +4,7 @@ const DUMMY_DATA = [
     taskDescription:
       "Write more content on Linkedin and start increasing online presence",
     alarmTime: "10:00 PM",
-    date: "Today",
+    date: "2019-02-11",
   },
   {
     id: "e2",

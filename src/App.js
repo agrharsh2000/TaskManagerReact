@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-import AddUser from "./components/Users/AddUser";
 import UserList from "./components/Users/UserList";
 import "./App.css";
 import TaskDisplay from "./components/Users/TaskDisplay";
@@ -17,11 +16,18 @@ function App() {
     setShowTaskDisplay(true);
   };
 
+  const handleDateChange = (date) => {
+    if (selectedTask) {
+      const updatedTask = { ...selectedTask, date };
+      setSelectedTask(updatedTask);
+    }
+  };
+
   return (
     <div>
       {showTaskDisplay ? (
         <>
-          <TaskDisplay users={selectedTask} />
+          <TaskDisplay users={selectedTask} onDateChange={handleDateChange} />
         </>
       ) : (
         <>
