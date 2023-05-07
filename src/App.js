@@ -30,6 +30,10 @@ function App() {
     }
   };
 
+  const handleHeaderClick = () => {
+    setShowTaskDisplay(false);
+  };
+
   return (
     <div>
       {showTaskDisplay ? (
@@ -38,6 +42,7 @@ function App() {
             users={selectedTask}
             onDateChange={handleDateChange}
             onTimeChange={handleTimeChange}
+            onHeaderClick={handleHeaderClick}
           />
         </>
       ) : (

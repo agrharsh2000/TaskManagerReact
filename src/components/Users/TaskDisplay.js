@@ -50,7 +50,7 @@ const TaskDisplay = (props) => {
 
   return (
     <div className="task-display-container">
-      <div className="header"></div>
+      <div className="header" onClick={props.onHeaderClick}></div>
       <div className="TaskInsider">
         <div className="TaskHeading">{props.users.taskDescription}</div>
         <div className="tasklist">
