@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import Card from "../UI/Card";
 import "./TaskDisplay.css";
 import dele from "../../img/delete.svg";
@@ -45,5 +45,4 @@ const TaskDisplay = (props) => {
     </div>
   );
 };
-
 export default TaskDisplay;
