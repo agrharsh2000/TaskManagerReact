@@ -21,6 +21,9 @@ const TaskDisplay = (props) => {
   const [selectedTime, setSelectedTime] = useState(props.users.alarmTime);
   const [showTimePicker, setShowTimePicker] = useState(false);
 
+  const [notesInput, setNotesInput] = useState("");
+  const [notes, setNotes] = useState("");
+
   const handleDateChange = (date) => {
     setSelectedDate(date);
     const formattedDate = date.toLocaleDateString();
@@ -48,6 +51,17 @@ const TaskDisplay = (props) => {
     setShowTimePicker(false);
   };
 
+  const handleNotesInputChange = (event) => {
+    setNotesInput(event.target.value);
+  };
+
+  const handleNotesInputKeyDown = (event) => {
+    if (event.key === "Enter") {
+      setNotes(notesInput);
+      setNotesInput("");
+    }
+  };
+
   return (
     <div className="task-display-container">
       <div className="header" onClick={props.onHeaderClick}></div>
@@ -61,7 +75,19 @@ const TaskDisplay = (props) => {
           </div>
 
           <div className="TaskCheckL">
-            <div className="TaskChecker">Notes</div>
+            {notes ? (
+              <div className="TaskChecker">{notes}</div>
+            ) : (
+              <div className="NotesInputWrapper">
+                <input
+                  type="text"
+                  value={notesInput}
+                  onChange={handleNotesInputChange}
+                  onKeyDown={handleNotesInputKeyDown}
+                  placeholder="Notes"
+                />
+              </div>
+            )}
             <img src={Notes} alt=""></img>
           </div>
 
