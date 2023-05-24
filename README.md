@@ -57,6 +57,5 @@ This project is licensed under the [MIT License](LICENSE).
 ## ScreenShot
 
 ![image](https://github.com/agrharsh2000/TaskManagerReact/assets/57790575/202c8dff-7015-419b-9396-3b64d10b994c)
-![image](https://github.com/agrharsh2000/TaskManagerReact/assets/57790575/879a28f3-50a1-4852-ac6f-c4b68ec24988)
 
 
